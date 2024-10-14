@@ -11,8 +11,8 @@ wordpress:latest
 4. WordPress REST API Authenticationをインストール
 5. WordPress REST API Authenticationの設定を完了する
 6. `.htaccess`をルートディレクトリに新規作成
-7. `wp-content.php`をルートディレクトリに新規作成
-
+7. `wp-config.php`をルートディレクトリに新規作成
+8. `wp-config.php`の権限を変更
 
 ```.htaccess
 <IfModule mod_rewrite.c>
@@ -23,7 +23,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
 ```
 
-```wp-content.php
+```wp-config.php
 <?php
   define('JWT_AUTH_SECRET_KEY', getenv('JWT_AUTH_SECRET_KEY'));
   define('JWT_AUTH_CORS_ENABLE', true);
